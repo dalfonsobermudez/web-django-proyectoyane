@@ -1,0 +1,68 @@
+{% extends 'proyectoyaneapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- 1. Hero / Sección Principal de Bienvenida -->
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
+  <div class="container-fluid py-3">
+    <h1 class="display-4 fw-bold text-dark">Bienvenido/a a nuestra Tienda</h1>
+    <p class="fs-5 text-muted col-md-8 mx-auto">
+      Descubre nuestra línea exclusiva de cuidado para la piel y cosméticos diseñados para resaltar tu belleza natural.
+    </p>
+    <a href="{% url 'Shop' %}" class="btn btn-primary btn-lg px-4 gap-3">Explorar Tienda</a>
+  </div>
+</div>
+
+<!-- 2. Rejilla (Grid) de Productos Destacados -->
+<h2 class="pb-2 border-bottom text-center mb-4">Productos Destacados</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+
+  <!-- Tarjeta 1 -->
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 1" style="height: 200px; object-fit: contain;">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Sérum Facial Hidratante</h5>
+        <p class="card-text text-muted">Fórmula avanzada con ácido hialurónico para mantener tu piel fresca todo el día.</p>
+        <div class="mt-auto d-flex justify-content-between align-items-center">
+          <span class="fs-5 fw-bold text-success">$25.00</span>
+          <button class="btn btn-outline-primary btn-sm">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta 2 -->
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 2" style="height: 200px; object-fit: contain;">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Crema Exfoliante</h5>
+        <p class="card-text text-muted">Elimina impurezas suavemente y devuelve el brillo natural a tu rostro.</p>
+        <div class="mt-auto d-flex justify-content-between align-items-center">
+          <span class="fs-5 fw-bold text-success">$18.50</span>
+          <button class="btn btn-outline-primary btn-sm">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta 3 -->
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 3" style="height: 200px; object-fit: contain;">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Protector Solar SPF 50</h5>
+        <p class="card-text text-muted">Protección de amplio espectro con toque seco y sin sensación grasosa.</p>
+        <div class="mt-auto d-flex justify-content-between align-items-center">
+          <span class="fs-5 fw-bold text-success">$30.00</span>
+          <button class="btn btn-outline-primary btn-sm">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock content %}
