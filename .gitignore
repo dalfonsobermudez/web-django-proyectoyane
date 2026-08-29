@@ -13,7 +13,7 @@ wheels/
 .env
 
 # Static Files
-/media/
+proyectoyane/media/
 /staticfiles/
 
 # Local Database
