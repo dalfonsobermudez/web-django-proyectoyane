@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('proyectoyaneapp.urls')),
     path('shop/', include('proyectoyaneshop.urls')),
     path('contact/', include('proyectoyanecontact.urls')),
+    path('blog/', include('proyectoyaneblog.urls')),
 ]

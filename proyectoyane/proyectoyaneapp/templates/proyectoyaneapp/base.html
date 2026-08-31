@@ -14,6 +14,18 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Cargar CSS personalizado -->
+    <link
+      rel="stylesheet"
+      href="{% static 'proyectoyaneapp/css/sitioyane.css' %}"
+    />
+    <!-- Cargar fuente de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -21,7 +33,9 @@
     <div class="container mt-4">
       <!-- Header de la Pagina-->
       <header>
-        <h1 class="mb-2 display-3 fw-bold text-dark text-center">Yane's Beauty & Skincare</h1>
+        <h1 class="mb-2 display-3 fw-bold text-dark text-center merriweather-header">
+          Yane's Beauty & Skincare
+        </h1>
       </header>
       <!-- Barra de Navegación Profesional -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mb-4">
@@ -57,7 +71,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link {% if request.path == '/' %} active {% endif %}"
+                  class="merriweather-text nav-link {% if request.path == '/' %} active {% endif %}"
                   aria-current="page"
                   href="{% url 'Home' %}"
                   >Inicio</a
@@ -65,14 +79,21 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link {% if request.path == '/shop/' %} active {% endif %}"
+                  class="merriweather-text nav-link {% if request.path == '/shop/' %} active {% endif %}"
                   href="{% url 'Shop' %}"
                   >Tienda</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link {% if request.path == '/contact/' %} active {% endif %}"
+                  class="merriweather-text nav-link {% if request.path == '/blog/' %} active {% endif %}"
+                  href="{% url 'Blog' %}"
+                  >Blog</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="merriweather-text nav-link {% if request.path == '/contact/' %} active {% endif %}"
                   href="{% url 'Contact' %}"
                   >Contacto</a
                 >

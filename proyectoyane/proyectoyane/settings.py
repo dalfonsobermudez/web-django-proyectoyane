@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'proyectoyaneapp',
     'proyectoyaneshop',
     'proyectoyanecontact',
+    'proyectoyaneblog',
     # Libreria de Estilos de formularios
     'crispy_forms',
     'crispy_bootstrap5',

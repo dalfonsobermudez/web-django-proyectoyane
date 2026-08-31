@@ -12,20 +12,20 @@
 
       <!-- Cabecera de la Tarjeta -->
       <div class="card-header bg-primary text-white text-center py-3">
-        <h2 class="h4 mb-0 fw-bold">Contáctanos</h2>
+        <h2 class="merriweather-header h4 mb-0 fw-bold">Contáctanos</h2>
       </div>
 
       <div class="card-body p-4">
 
         <!-- Mensaje de Éxito (Alerta de Bootstrap) -->
         {% if 'valid' in request.GET %}
-          <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+          <div class="merriweather-text alert alert-success alert-dismissible fade show text-center" role="alert">
             ¡Información enviada correctamente! Nos pondremos en contacto pronto.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         {% endif %}
 
-        <p class="text-muted text-center mb-4">¿Tienes alguna duda o consulta sobre nuestros productos? Escríbenos.</p>
+        <p class="merriweather-text text-muted text-center mb-4">¿Tienes alguna duda o consulta sobre nuestros productos? Escríbenos.</p>
 
         <!-- Formulario con Crispy Forms -->
         <form action="" method="POST">
@@ -36,7 +36,7 @@
 
           <!-- Botón de Envío -->
           <div class="d-grid gap-2 mt-4">
-            <button type="submit" class="btn btn-primary btn-lg rounded-3 fw-bold">Enviar mensaje</button>
+            <button type="submit" class="merriweather-text btn btn-primary btn-lg rounded-3 fw-bold">Enviar mensaje</button>
           </div>
         </form>
 
