@@ -11,3 +11,12 @@ def shop(request):
         "proyectoyaneshop/shop.html",
         {"products": products},
     )
+
+
+def product_details(request, product_slug: str):
+    product = Product.objects.get(slug=product_slug)
+    return render(
+        request,
+        "proyectoyaneshop/product_details.html",
+        {"product": product},
+    )
