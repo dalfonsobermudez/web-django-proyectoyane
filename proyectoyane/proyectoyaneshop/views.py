@@ -5,6 +5,7 @@ from proyectoyaneshop.models import Product
 
 # Create your views here.
 def shop(request):
+    # TODO recuperar solo productos que product.is_active=True
     products = Product.objects.all()
     return render(
         request,
@@ -20,3 +21,5 @@ def product_details(request, product_slug: str):
         "proyectoyaneshop/product_details.html",
         {"product": product},
     )
+
+# TODO Crear vista de Categorias
