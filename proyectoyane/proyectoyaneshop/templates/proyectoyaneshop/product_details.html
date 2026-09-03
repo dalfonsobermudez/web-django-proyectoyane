@@ -4,9 +4,50 @@
 
 {% block content %}
 
-  <h1>{{product.name}}</h1>
-  <img src="{{ product.image.url }}">
-  <p>{{product.details}}</p>
-  <p>{{product.price}}</p>
+{% if categories %}
+  <div class="row mb-3">
+    <div class="col">
+      <nav aria-label="Categorias" class="d-flex justify-content-center flex-wrap gap-2">
+        <a href="{% url 'Shop' %}" class="btn btn-sm btn-outline-secondary rounded-pill">Todas</a>
+        {% for cat in categories %}
+          <a href="{% url 'ProductsByCategory' cat.slug %}" class="btn btn-sm btn-outline-primary rounded-pill {% if cat == product.category %}active{% endif %}">{{ cat.name }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+{% endif %}
+
+<div class="row align-items-center g-4 py-3">
+  <div class="col-lg-6">
+    <div class="card shadow-sm rounded-4 overflow-hidden border-0 bg-light">
+      {% if product.image %}
+        <img src="{{ product.image.url }}" class="img-fluid p-4" alt="{{ product.name }}" style="height: 560px; object-fit: contain; background: #f8f8f8;">
+      {% else %}
+        <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="img-fluid p-4" alt="{{ product.name }}" style="height: 560px; object-fit: contain; background: #f8f8f8;">
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="d-flex flex-column justify-content-center h-100">
+      <span class="badge rounded-pill bg-light text-dark border mb-3 align-self-start px-3 py-2 merriweather-text">{{ product.category.name }}</span>
+      <h1 class="merriweather-header display-5 fw-bold text-dark mb-3">{{ product.name }}</h1>
+      <p class="merriweather-text text-muted mb-4">Producto exclusivo de nuestra colección de belleza y cuidado personal.</p>
+
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <span class="merriweather-text fs-3 fw-bold text-success">${{ product.price }}</span>
+      </div>
+
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <a href="{% url 'Shop' %}" class="merriweather-text btn btn-outline-dark rounded-pill px-4">Volver a la tienda</a>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-4 bg-light p-4">
+        <h3 class="merriweather-header h4 fw-bold text-dark mb-3">Descripción</h3>
+        <p class="merriweather-text text-secondary mb-0">{{ product.details|linebreaksbr }}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

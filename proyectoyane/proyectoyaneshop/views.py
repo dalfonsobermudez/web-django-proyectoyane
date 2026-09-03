@@ -18,10 +18,11 @@ def shop(request):
 
 def product_details(request, product_slug: str):
     product = get_object_or_404(Product, slug=product_slug)
+    categories = ProductCategory.objects.all()
     return render(
         request,
         "proyectoyaneshop/product_details.html",
-        {"product": product},
+        {"product": product, "categories": categories},
     )
 
 
