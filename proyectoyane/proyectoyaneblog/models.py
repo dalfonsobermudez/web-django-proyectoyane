@@ -21,8 +21,8 @@ class PostCategory(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-        def __str__(self) -> str:
-            return self.name
+    def __str__(self) -> str:
+        return self.name
 
 
 class Post(models.Model):
