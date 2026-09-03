@@ -8,9 +8,9 @@
   <div class="row mb-4">
     <div class="col">
       <nav aria-label="Categorias del blog" class="d-flex justify-content-center flex-wrap gap-2">
-        <a href="{% url 'Blog' %}" class="btn btn-sm btn-outline-secondary rounded-pill active">Todas</a>
+        <a href="{% url 'Blog' %}" class="btn btn-sm btn-outline-secondary rounded-pill">Todas</a>
         {% for cat in categories %}
-          <a href="{% url 'PostsByCategory' cat.slug %}" class="btn btn-sm btn-outline-primary rounded-pill">{{ cat.name }}</a>
+          <a href="{% url 'PostsByCategory' cat.slug %}" class="btn btn-sm btn-outline-primary rounded-pill {% if cat == category %}active{% endif %}">{{ cat.name }}</a>
         {% endfor %}
       </nav>
     </div>
@@ -19,8 +19,8 @@
 
 <div class="row mb-4">
   <div class="col text-center">
-    <h2 class="merriweather-header display-5 fw-bold text-dark">Blog</h2>
-    <p class="merriweather-text text-muted">Descubre nuestras últimas publicaciones, consejos y novedades del cuidado personal.</p>
+    <h2 class="merriweather-header display-5 fw-bold text-dark">Posts en: {{ category.name }}</h2>
+    <p class="merriweather-text text-muted">Explora todas las publicaciones relacionadas con esta categoría.</p>
   </div>
 </div>
 
@@ -53,7 +53,7 @@
     </article>
   {% empty %}
     <div class="text-center py-5">
-      <p class="merriweather-text fs-4 text-muted">Aún no hay publicaciones en el blog.</p>
+      <p class="merriweather-text fs-4 text-muted">No hay publicaciones en esta categoría todavía.</p>
     </div>
   {% endfor %}
 </div>

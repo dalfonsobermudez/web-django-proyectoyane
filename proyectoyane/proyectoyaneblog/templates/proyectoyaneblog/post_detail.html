@@ -1,0 +1,38 @@
+{% extends 'proyectoyaneapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row mb-4">
+  <div class="col">
+    <a href="{% url 'Blog' %}" class="btn btn-outline-secondary btn-sm rounded-pill mb-3">← Volver al blog</a>
+  </div>
+</div>
+
+<article class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid w-100" style="max-height: 480px; object-fit: cover;">
+  {% else %}
+    <img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ post.title }}" class="img-fluid w-100" style="max-height: 480px; object-fit: cover;">
+  {% endif %}
+
+  <div class="card-body p-4 p-lg-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+      <span class="badge bg-light text-dark border rounded-pill">{{ post.category.name }}</span>
+      <small class="text-muted">{{ post.created|date:"d M Y" }}</small>
+    </div>
+
+    <h1 class="merriweather-header display-5 fw-bold text-dark mb-3">{{ post.title }}</h1>
+
+    <p class="merriweather-text text-secondary mb-4">
+      Por {{ post.author.get_full_name|default:post.author.username }}
+    </p>
+
+    <div class="merriweather-text text-dark fs-5 lh-lg">
+      {{ post.content|linebreaks }}
+    </div>
+  </div>
+</article>
+
+{% endblock content %}
