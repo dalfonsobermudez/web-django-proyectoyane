@@ -68,7 +68,7 @@
           </button>
           <!-- Enlaces de la barra de navegación -->
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-3 mb-lg-0">
               <li class="nav-item">
                 <a
                   class="merriweather-text nav-link {% if request.path == '/' %} active {% endif %}"
@@ -79,7 +79,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="merriweather-text nav-link {% if request.path == '/shop/' %} active {% endif %}"
+                  class="merriweather-text nav-link {% if request.path|slice:':6' == '/shop/' %} active {% endif %}"
                   href="{% url 'Shop' %}"
                   >Tienda</a
                 >

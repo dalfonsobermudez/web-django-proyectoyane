@@ -4,9 +4,17 @@
 
 {% block content %}
 
+<!-- Título de la Sección -->
+<div class="row mb-1">
+  <div class="col text-center">
+    <h2 class="merriweather-header display-5 fw-bold text-dark">Productos en: {{ category.name }}</h2>
+    <p class="merriweather-text text-muted">Mostrando los productos disponibles en la categoría seleccionada.</p>
+  </div>
+</div>
+
 <!-- Lista de categorías arriba para mantener consistencia -->
 {% if categories %}
-  <div class="row mb-3">
+  <div class="row mb-5">
     <div class="col">
       <nav aria-label="Categorias" class="d-flex justify-content-center flex-wrap gap-2">
         <a href="{% url 'Shop' %}" class="btn btn-sm btn-outline-secondary rounded-pill">Todas</a>
@@ -17,13 +25,6 @@
     </div>
   </div>
 {% endif %}
-
-<div class="row mb-4">
-  <div class="col text-center">
-    <h2 class="merriweather-header display-5 fw-bold text-dark">Productos en: {{ category.name }}</h2>
-    <p class="merriweather-text text-muted">Mostrando los productos disponibles en la categoría seleccionada.</p>
-  </div>
-</div>
 
 <!-- Rejilla Dinámica de Productos -->
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
@@ -49,8 +50,8 @@
       </div>
     </div>
   {% empty %}
-    <div class="col-12 text-center py-5">
-      <p class="merriweather-text fs-4 text-muted">No hay productos en esta categoría.</p>
+    <div class="col-12 w-100 d-flex align-items-center justify-content-center text-center" style="min-height: 40vh;">
+      <p class="merriweather-text text-muted">No hay productos en esta categoría.</p>
     </div>
   {% endfor %}
 </div>
