@@ -1,18 +1,34 @@
 {% extends 'proyectoyaneapp/base.html' %}
 {% load static %}
-
+{% block title %}Yane's Beauty & Skincare | Belleza esencial{% endblock title %}
 {% block content %}
-
-<!-- 1. Hero / Sección Principal de Bienvenida -->
-<div class="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
-  <div class="container-fluid py-3">
-    <h1 class="merriweather-header display-5 fw-bold text-dark">Bienvenido/a a nuestra Tienda</h1>
-    <p class="merriweather-text fs-5 text-muted col-md-8 mx-auto">
-      Descubre nuestra línea exclusiva de cuidado para la piel y cosméticos diseñados para resaltar tu belleza natural.
-    </p>
-    <a href="{% url 'Shop' %}" class="merriweather-text btn btn-primary btn-lg px-4 gap-3">Explorar Tienda</a>
+<section class="home-hero">
+  <div class="container">
+    <div class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Rituales que se sienten bien</p>
+        <h1>Belleza simple.<br /><em>Esencia real.</em></h1>
+        <p class="hero-lead">Productos seleccionados para acompañar tu piel con cuidado, intención y un toque de calma.</p>
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a href="{% url 'Shop' %}" class="button button-dark">Explorar colección <span>↗</span></a>
+          <a href="{% url 'Contact' %}" class="text-link">Hablemos de tu rutina <span>→</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="{% static 'proyectoyaneapp/images/logo-vertical.png' %}" alt="Yane's Beauty" />
+      </div>
+    </div>
   </div>
-</div>
-
-</div>
+</section>
+<section class="home-intro section-space">
+  <div class="container">
+    <div class="row align-items-end gy-4">
+      <div class="col-lg-7"><p class="eyebrow">Nuestra filosofía</p><h2>Menos ruido.<br /><span>Más de ti.</span></h2></div>
+      <div class="col-lg-4 offset-lg-1"><p class="body-copy">Creemos en una belleza que no necesita exagerar. Fórmulas y detalles elegidos para crear momentos de bienestar en tu día.</p><a href="{% url 'Blog' %}" class="text-link">Conoce nuestro journal <span>→</span></a></div>
+    </div>
+  </div>
+</section>
+<section class="home-feature">
+  <div class="container"><div class="feature-strip"><div><p class="eyebrow">Descubre tu ritual</p><h2>Lo esencial para<br />sentirte bien.</h2></div><a href="{% url 'Shop' %}" class="button button-light">Ver colección <span>↗</span></a></div></div>
+</section>
 {% endblock content %}

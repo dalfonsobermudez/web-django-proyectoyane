@@ -1,55 +1,6 @@
 {% extends 'proyectoyaneapp/base.html' %}
-
 {% load static %}
-
+{% block title %}{{ product.name }} | Yane's Beauty{% endblock title %}
 {% block content %}
-
-<nav aria-label="Migas de pan" class="mb-3">
-  <ol class="breadcrumb merriweather-text">
-    <li class="breadcrumb-item">
-      <a href="{% url 'Shop' %}" class="text-decoration-none">Tienda</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="{% url 'ProductsByCategory' product.category.slug %}" class="text-decoration-none">{{ product.category.name }}</a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
-  </ol>
-</nav>
-
-<div class="row align-items-center g-4 py-2">
-  <div class="col-lg-6">
-    <div class="card shadow-sm rounded-4 overflow-hidden border-0 bg-light">
-      {% if product.image %}
-        <img src="{{ product.image.url }}" class="img-fluid p-4" alt="{{ product.name }}" style="height: 560px; object-fit: contain; background: #f8f8f8;">
-      {% else %}
-        <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="img-fluid p-4" alt="{{ product.name }}" style="height: 560px; object-fit: contain; background: #f8f8f8;">
-      {% endif %}
-    </div>
-  </div>
-
-  <div class="col-lg-6">
-    <div class="d-flex flex-column justify-content-center h-100">
-
-      <h1 class="merriweather-header display-5 fw-bold text-dark mb-3">{{ product.name }}</h1>
-      <p class="merriweather-text text-muted mb-4">Producto exclusivo de nuestra colección de belleza y cuidado personal.</p>
-
-      <div class="card border-0 shadow-sm rounded-4 bg-light p-4">
-        <h3 class="merriweather-header h4 fw-bold text-dark mb-3">Descripción</h3>
-        <p class="merriweather-text text-secondary mb-0">{{ product.details|linebreaksbr }}</p>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-center text-center gap-3 mb-4 py-3">
-        <span class="merriweather-text fs-3 fw-bold text-success">${{ product.price }}</span>
-      </div>
-
-      {% if whatsapp_url %}
-        <a href="{{ whatsapp_url }}" class="merriweather-text btn btn-success btn-lg rounded-pill" target="_blank" rel="noopener">
-          Consultar por WhatsApp
-        </a>
-      {% endif %}
-
-    </div>
-  </div>
-</div>
-
+<div class="container py-5"><a href="{% url 'Shop' %}" class="text-link mb-4">← Volver a la colección</a><div class="row g-5 align-items-center"><div class="col-lg-6"><div class="detail-image">{% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}" />{% else %}<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ product.name }}" />{% endif %}</div></div><div class="col-lg-5 offset-lg-1"><div class="detail-copy"><p class="eyebrow">{{ product.category.name }}</p><h1>{{ product.name }}</h1><span class="price">${{ product.price }}</span><div class="detail-description">{{ product.details|linebreaksbr }}</div>{% if whatsapp_url %}<a href="{{ whatsapp_url }}" class="whatsapp-button" target="_blank" rel="noopener">Consultar por WhatsApp ↗</a>{% endif %}</div></div></div></div>
 {% endblock content %}
