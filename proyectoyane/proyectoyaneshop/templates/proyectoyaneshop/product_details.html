@@ -2,5 +2,35 @@
 {% load static %}
 {% block title %}{{ product.name }} | Yane's Beauty{% endblock title %}
 {% block content %}
-<div class="container py-5"><a href="{% url 'Shop' %}" class="text-link mb-4">← Volver a la colección</a><div class="row g-5 align-items-center"><div class="col-lg-6"><div class="detail-image">{% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.name }}" />{% else %}<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ product.name }}" />{% endif %}</div></div><div class="col-lg-5 offset-lg-1"><div class="detail-copy"><p class="eyebrow">{{ product.category.name }}</p><h1>{{ product.name }}</h1><span class="price">${{ product.price }}</span><div class="detail-description">{{ product.details|linebreaksbr }}</div>{% if whatsapp_url %}<a href="{{ whatsapp_url }}" class="whatsapp-button" target="_blank" rel="noopener">Consultar por WhatsApp ↗</a>{% endif %}</div></div></div></div>
+
+<div class="container py-5">
+	<a href="{% url 'Shop' %}" class="text-link mb-4">← Volver a la colección</a>
+
+	<div class="row g-5 align-items-center">
+		<div class="col-lg-6">
+			<div class="detail-image">
+				{% if product.image %}
+					<img src="{{ product.image.url }}" alt="{{ product.name }}" />
+				{% else %}
+					<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ product.name }}" />
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="col-lg-5 offset-lg-1">
+			<div class="detail-copy">
+				<p class="eyebrow">{{ product.category.name }}</p>
+				<h1>{{ product.name }}</h1>
+				<span class="price">${{ product.price }}</span>
+				<div class="detail-description">{{ product.details|linebreaksbr }}</div>
+
+				{% if whatsapp_url %}
+					<a href="{{ whatsapp_url }}" class="whatsapp-button" target="_blank" rel="noopener">
+						Consultar por WhatsApp ↗
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content %}

@@ -2,5 +2,34 @@
 {% load crispy_forms_tags %}
 {% block title %}Contacto | Yane's Beauty{% endblock title %}
 {% block content %}
-<div class="container py-5"><div class="row g-5 align-items-start"><div class="col-lg-5"><p class="eyebrow">Estamos para ayudarte</p><h1 class="display-1">Hablemos.</h1><p class="body-copy mt-4">¿Tienes una duda sobre nuestros productos o quieres encontrar tu próximo esencial? Escríbenos y te responderemos pronto.</p></div><div class="col-lg-6 offset-lg-1"><div class="contact-card">{% if 'valid' in request.GET %}<div class="alert alert-success border-0 rounded-0">Información enviada correctamente. Nos pondremos en contacto pronto.</div>{% endif %}<form action="" method="POST">{% csrf_token %}{{ contact_form|crispy }}<button type="submit" class="button button-dark mt-3 w-100 justify-content-center">Enviar mensaje <span>↗</span></button></form></div></div></div></div>
+<div class="container py-5">
+	<div class="row g-5 align-items-start">
+		<div class="col-lg-5">
+			<p class="eyebrow">Estamos para ayudarte</p>
+			<h1 class="display-1">Hablemos.</h1>
+			<p class="body-copy mt-4">
+				¿Tienes una duda sobre nuestros productos o quieres encontrar tu próximo esencial?
+				Escríbenos y te responderemos pronto.
+			</p>
+		</div>
+
+		<div class="col-lg-6 offset-lg-1">
+			<div class="contact-card">
+				{% if 'valid' in request.GET %}
+					<div class="alert alert-success border-0 rounded-0">
+						Información enviada correctamente. Nos pondremos en contacto pronto.
+					</div>
+				{% endif %}
+
+				<form action="" method="POST">
+					{% csrf_token %}
+					{{ contact_form|crispy }}
+					<button type="submit" class="button button-dark mt-3 w-100 justify-content-center">
+						Enviar mensaje <span>↗</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content %}

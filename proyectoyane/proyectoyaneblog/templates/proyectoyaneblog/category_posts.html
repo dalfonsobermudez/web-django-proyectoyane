@@ -2,7 +2,47 @@
 {% load static %}
 {% block title %}{{ category.name }} | Journal{% endblock title %}
 {% block content %}
-<div class="container"><header class="page-heading"><p class="eyebrow">Journal</p><h1>{{ category.name }}</h1><p>Explora todas las publicaciones de esta categoría.</p></header>
-{% if categories %}<nav class="category-nav" aria-label="Categorías del journal"><a href="{% url 'Blog' %}">Todo</a>{% for cat in categories %}<a class="{% if cat == category %}active{% endif %}" href="{% url 'PostsByCategory' cat.slug %}">{{ cat.name }}</a>{% endfor %}</nav>{% endif %}
-<div class="row g-4 pb-5">{% for post in posts %}<div class="col-12 col-md-6 col-lg-4"><article class="journal-card">{% if post.image %}<img src="{{ post.image.url }}" alt="{{ post.title }}" class="journal-image" />{% else %}<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ post.title }}" class="journal-image" />{% endif %}<div class="journal-body"><div class="post-meta mb-3">{{ post.created|date:"d M Y" }}</div><h2>{{ post.title }}</h2><p>{{ post.content|truncatechars:150 }}</p><a href="{% url 'PostDetail' post.slug %}" class="small-link">Leer artículo →</a></div></article></div>{% empty %}<div class="col-12 py-5 text-center"><p class="body-copy mx-auto">No hay publicaciones en esta categoría todavía.</p></div>{% endfor %}</div></div>
+<div class="container">
+	<header class="page-heading">
+		<p class="eyebrow">Journal</p>
+		<h1>{{ category.name }}</h1>
+		<p>Explora todas las publicaciones de esta categoría.</p>
+	</header>
+
+	{% if categories %}
+		<nav class="category-nav" aria-label="Categorías del journal">
+			<a href="{% url 'Blog' %}">Todo</a>
+			{% for cat in categories %}
+				<a class="{% if cat == category %}active{% endif %}" href="{% url 'PostsByCategory' cat.slug %}">
+					{{ cat.name }}
+				</a>
+			{% endfor %}
+		</nav>
+	{% endif %}
+
+	<div class="row g-4 pb-5">
+		{% for post in posts %}
+			<div class="col-12 col-md-6 col-lg-4">
+				<article class="journal-card">
+					{% if post.image %}
+						<img src="{{ post.image.url }}" alt="{{ post.title }}" class="journal-image" />
+					{% else %}
+						<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ post.title }}" class="journal-image" />
+					{% endif %}
+
+					<div class="journal-body">
+						<div class="post-meta mb-3">{{ post.created|date:"d M Y" }}</div>
+						<h2>{{ post.title }}</h2>
+						<p>{{ post.content|truncatechars:150 }}</p>
+						<a href="{% url 'PostDetail' post.slug %}" class="small-link">Leer artículo →</a>
+					</div>
+				</article>
+			</div>
+		{% empty %}
+			<div class="col-12 py-5 text-center">
+				<p class="body-copy mx-auto">No hay publicaciones en esta categoría todavía.</p>
+			</div>
+		{% endfor %}
+	</div>
+</div>
 {% endblock content %}

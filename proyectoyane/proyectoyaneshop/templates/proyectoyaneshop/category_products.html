@@ -3,8 +3,52 @@
 {% block title %}{{ category.name }} | Yane's Beauty{% endblock title %}
 {% block content %}
 <div class="container">
-  <header class="page-heading"><p class="eyebrow">La colección</p><h1>{{ category.name }}</h1><p>Una selección pensada para acompañar tu ritual.</p></header>
-  {% if categories %}<nav class="category-nav" aria-label="Categorías"><a href="{% url 'Shop' %}">Todo</a>{% for cat in categories %}<a class="{% if cat == category %}active{% endif %}" href="{% url 'ProductsByCategory' cat.slug %}">{{ cat.name }}</a>{% endfor %}</nav>{% endif %}
-  <div class="row g-4 pb-5">{% for product in products %}<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><article class="product-card">{% if product.image %}<div class="product-image"><img src="{{ product.image.url }}" alt="{{ product.name }}" /></div>{% else %}<div class="product-image"><img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ product.name }}" /></div>{% endif %}<div class="product-info"><h2>{{ product.name }}</h2><p>{{ product.details|truncatechars:100 }}</p><div class="product-meta"><span class="price">${{ product.price }}</span><a class="small-link" href="{% url 'ProductDetails' product.slug %}">Descubrir →</a></div></div></article></div>{% empty %}<div class="col-12 py-5 text-center"><p class="body-copy mx-auto">No hay productos en esta categoría.</p></div>{% endfor %}</div>
+  <header class="page-heading">
+    <p class="eyebrow">La colección</p>
+    <h1>{{ category.name }}</h1>
+    <p>Una selección pensada para acompañar tu ritual.</p>
+  </header>
+
+  {% if categories %}
+    <nav class="category-nav" aria-label="Categorías">
+      <a href="{% url 'Shop' %}">Todo</a>
+      {% for cat in categories %}
+        <a class="{% if cat == category %}active{% endif %}" href="{% url 'ProductsByCategory' cat.slug %}">
+          {{ cat.name }}
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+
+  <div class="row g-4 pb-5">
+    {% for product in products %}
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <article class="product-card">
+          {% if product.image %}
+            <div class="product-image">
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            </div>
+          {% else %}
+            <div class="product-image">
+              <img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ product.name }}" />
+            </div>
+          {% endif %}
+
+          <div class="product-info">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.details|truncatechars:100 }}</p>
+            <div class="product-meta">
+              <span class="price">${{ product.price }}</span>
+              <a class="small-link" href="{% url 'ProductDetails' product.slug %}">Descubrir →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    {% empty %}
+      <div class="col-12 py-5 text-center">
+        <p class="body-copy mx-auto">No hay productos en esta categoría.</p>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock content %}

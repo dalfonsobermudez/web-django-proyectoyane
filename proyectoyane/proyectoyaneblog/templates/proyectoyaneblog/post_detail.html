@@ -2,5 +2,24 @@
 {% load static %}
 {% block title %}{{ post.title }} | Journal{% endblock title %}
 {% block content %}
-<div class="container py-5"><a href="{% url 'Blog' %}" class="text-link mb-4">← Volver al journal</a><article class="post-article mx-auto">{% if post.image %}<img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-hero mb-5" />{% else %}<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ post.title }}" class="post-hero mb-5" />{% endif %}<div class="post-meta mb-3">{{ post.category.name }} · {{ post.created|date:"d M Y" }}</div><h1>{{ post.title }}</h1><p class="text-muted mb-5">Por {{ post.author.get_full_name|default:post.author.username }}</p><div class="post-content">{{ post.content|linebreaks }}</div></article></div>
+<div class="container py-5">
+	<a href="{% url 'Blog' %}" class="text-link mb-4">← Volver al journal</a>
+
+	<article class="post-article mx-auto">
+		{% if post.image %}
+			<img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-hero mb-5" />
+		{% else %}
+			<img src="{% static 'proyectoyaneapp/images/logo.png' %}" alt="{{ post.title }}" class="post-hero mb-5" />
+		{% endif %}
+
+		<div class="post-meta mb-3">
+			{{ post.category.name }} · {{ post.created|date:"d M Y" }}
+		</div>
+		<h1>{{ post.title }}</h1>
+		<p class="text-muted mb-5">
+			Por {{ post.author.get_full_name|default:post.author.username }}
+		</p>
+		<div class="post-content">{{ post.content|linebreaks }}</div>
+	</article>
+</div>
 {% endblock content %}
