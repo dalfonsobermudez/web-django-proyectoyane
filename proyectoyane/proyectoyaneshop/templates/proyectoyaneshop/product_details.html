@@ -42,6 +42,11 @@
         <span class="merriweather-text fs-3 fw-bold text-success">${{ product.price }}</span>
       </div>
 
+      {% if whatsapp_url %}
+        <a href="{{ whatsapp_url }}" class="merriweather-text btn btn-success btn-lg rounded-pill" target="_blank" rel="noopener">
+          Consultar por WhatsApp
+        </a>
+      {% endif %}
 
     </div>
   </div>
