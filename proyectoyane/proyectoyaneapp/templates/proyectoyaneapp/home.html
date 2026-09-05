@@ -14,55 +14,5 @@
   </div>
 </div>
 
-<!-- 2. Rejilla (Grid) de Productos Destacados -->
-<h2 class="merriweather-header pb-2 border-bottom text-center mb-4">Productos Destacados</h2>
-
-<div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
-
-  <!-- Tarjeta 1 -->
-  <div class="col">
-    <div class="card h-100 shadow-sm">
-      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 1" style="height: 200px; object-fit: contain;">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Sérum Facial Hidratante</h5>
-        <p class="card-text text-muted">Fórmula avanzada con ácido hialurónico para mantener tu piel fresca todo el día.</p>
-        <div class="mt-auto d-flex justify-content-between align-items-center">
-          <span class="fs-5 fw-bold text-success">$25.00</span>
-          <a href="{% url 'Shop' %}" class="btn btn-outline-primary btn-sm">Ver catálogo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 2 -->
-  <div class="col">
-    <div class="card h-100 shadow-sm">
-      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 2" style="height: 200px; object-fit: contain;">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Crema Exfoliante</h5>
-        <p class="card-text text-muted">Elimina impurezas suavemente y devuelve el brillo natural a tu rostro.</p>
-        <div class="mt-auto d-flex justify-content-between align-items-center">
-          <span class="fs-5 fw-bold text-success">$18.50</span>
-          <a href="{% url 'Shop' %}" class="btn btn-outline-primary btn-sm">Ver catálogo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tarjeta 3 -->
-  <div class="col">
-    <div class="card h-100 shadow-sm">
-      <img src="{% static 'proyectoyaneapp/images/logo.png' %}" class="card-img-top p-3" alt="Producto 3" style="height: 200px; object-fit: contain;">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Protector Solar SPF 50</h5>
-        <p class="card-text text-muted">Protección de amplio espectro con toque seco y sin sensación grasosa.</p>
-        <div class="mt-auto d-flex justify-content-between align-items-center">
-          <span class="fs-5 fw-bold text-success">$30.00</span>
-          <a href="{% url 'Shop' %}" class="btn btn-outline-primary btn-sm">Ver catálogo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 {% endblock content %}
