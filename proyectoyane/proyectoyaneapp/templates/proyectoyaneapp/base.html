@@ -42,14 +42,14 @@
         <div class="row g-4">
           <div class="col-lg-4">
             <p class="footer-brand mb-1">Yane's Beauty & Skincare</p>
-            <p class="footer-note mb-3">Belleza consciente, todos los días.</p>
+            <p class="footer-note mb-4">Belleza consciente, todos los días.</p>
             <p class="footer-label mb-2">Síguenos y escríbenos</p>
             <div class="footer-socials" aria-label="Canales de contacto">
               {% if site_contact.whatsapp_url %}
-                <a class="footer-social-button footer-social-whatsapp" href="{{ site_contact.whatsapp_url }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="footer-social-button footer-social-whatsapp" href="{{ site_contact.whatsapp_url }}" target="_blank" rel="noopener noreferrer"><img src="{% static 'proyectoyaneapp/images/whatsapp-logo.png' %}" alt="Contacto de Whatsapp" style="width: 30px; height: 30px;"></a>
               {% endif %}
-              <a class="footer-social-button" href="{{ site_contact.facebook_url }}" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a class="footer-social-button" href="{{ site_contact.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="footer-social-button" href="{{ site_contact.facebook_url }}" target="_blank" rel="noopener noreferrer"><img src="{% static 'proyectoyaneapp/images/facebook-logo.png' %}" alt="Contacto de Facebook" style="width: 30px; height: 30px;"></a>
+              <a class="footer-social-button" href="{{ site_contact.instagram_url }}" target="_blank" rel="noopener noreferrer"><img src="{% static 'proyectoyaneapp/images/instagram-logo.png' %}" alt="Contacto de Instagram" style="width: 30px; height: 30px;"></a>
             </div>
           </div>
           <div class="col-lg-8">
@@ -62,11 +62,11 @@
               {% if site_contact.google_maps_embed_url %}
                 <iframe
                   class="footer-map"
-                  src="{{ site_contact.google_maps_embed_url }}"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3678.0243393880937!2d-80.071333!3d22.801562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDQ4JzA1LjYiTiA4MMKwMDQnMTYuOCJX!5e0!3m2!1ses-419!2sus!4v1788831474099!5m2!1ses-419!2sus"
                   title="Ubicación de Yane's Beauty & Skincare en Google Maps"
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  allowfullscreen>
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen=''>
                 </iframe>
               {% endif %}
             </div>

@@ -143,6 +143,8 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", EMAIL_HOST_USER)
+
+# Social media and store information
 WHATSAPP_NUMBER = os.environ.get("WHATSAPP_NUMBER", "")
 FACEBOOK_URL = os.environ.get("FACEBOOK_URL", "https://www.facebook.com/")
 INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/")
