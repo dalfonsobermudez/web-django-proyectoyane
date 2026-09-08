@@ -222,7 +222,7 @@ main {
 }
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 2rem 0;
+  padding: 3.5rem 0 1.5rem;
 }
 .footer-brand {
   font-size: 1.5rem;
@@ -230,6 +230,77 @@ main {
 .footer-note {
   color: var(--muted);
   font-size: 0.76rem;
+}
+.footer-label {
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-social-button {
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.footer-social-button:hover,
+.footer-social-button:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.footer-social-whatsapp {
+  border-color: #6ba982;
+}
+.footer-location {
+  align-items: center;
+  background: var(--sand);
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+}
+.footer-map-link {
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-map-link:hover {
+  color: var(--rose);
+}
+.footer-map {
+  border: 0;
+  height: 130px;
+  min-width: 220px;
+  width: 42%;
+}
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+}
+@media (max-width: 767.98px) {
+  .footer-location {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer-map {
+    height: 180px;
+    min-width: 0;
+    width: 100%;
+  }
 }
 .page-heading {
   padding: 5rem 0 3rem;

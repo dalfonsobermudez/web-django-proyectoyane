@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'proyectoyane.context_processors.site_contact',
             ],
         },
     },
@@ -143,6 +144,11 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", EMAIL_HOST_USER)
 WHATSAPP_NUMBER = os.environ.get("WHATSAPP_NUMBER", "")
+FACEBOOK_URL = os.environ.get("FACEBOOK_URL", "https://www.facebook.com/")
+INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/")
+STORE_ADDRESS = os.environ.get("STORE_ADDRESS", "Añade aquí la dirección de la tienda")
+GOOGLE_MAPS_URL = os.environ.get("GOOGLE_MAPS_URL", "https://maps.google.com/")
+GOOGLE_MAPS_EMBED_URL = os.environ.get("GOOGLE_MAPS_EMBED_URL", "")
 
 # Configuracion de Crispy Forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
