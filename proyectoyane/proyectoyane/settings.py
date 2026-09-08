@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 
+import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,12 +27,12 @@ load_dotenv(env_path)
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "development-only-not-for-production")
+SECRET_KEY = os.environ.get("SECRET_KEY", "development-only")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", '').split(',')
 
 
 # Application definition
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,10 +90,10 @@ WSGI_APPLICATION = 'proyectoyane.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+    )
 }
 
 
@@ -129,6 +131,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -148,7 +159,7 @@ CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", EMAIL_HOST_USER)
 WHATSAPP_NUMBER = os.environ.get("WHATSAPP_NUMBER", "")
 FACEBOOK_URL = os.environ.get("FACEBOOK_URL", "https://www.facebook.com/")
 INSTAGRAM_URL = os.environ.get("INSTAGRAM_URL", "https://www.instagram.com/")
-STORE_ADDRESS = os.environ.get("STORE_ADDRESS", "Añade aquí la dirección de la tienda")
+STORE_ADDRESS = os.environ.get("STORE_ADDRESS", "Dirección de la tienda")
 GOOGLE_MAPS_URL = os.environ.get("GOOGLE_MAPS_URL", "https://maps.google.com/")
 GOOGLE_MAPS_EMBED_URL = os.environ.get("GOOGLE_MAPS_EMBED_URL", "")
 

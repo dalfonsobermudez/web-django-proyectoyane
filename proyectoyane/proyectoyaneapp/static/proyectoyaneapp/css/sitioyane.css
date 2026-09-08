@@ -262,6 +262,12 @@ main {
 .footer-social-whatsapp {
   border-color: #6ba982;
 }
+.footer-social-instagram {
+  border-color: #99328b;
+}
+.footer-social-facebook {
+  border-color: #507abe;
+}
 .footer-location {
   align-items: center;
   background: var(--sand);
