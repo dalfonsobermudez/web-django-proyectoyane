@@ -26,7 +26,7 @@ class ProductCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=100)
     details = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="products/", null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -44,7 +44,7 @@ class Product(models.Model):
         # Si el slug no ha sido ingresado manualmente,
         # se genera a partir del nombre
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:100]
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:
