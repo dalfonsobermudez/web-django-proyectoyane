@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # Create your models here.
 class ProductCategory(models.Model):
     name = models.CharField(max_length=50)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=50)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -17,7 +17,7 @@ class ProductCategory(models.Model):
         # Si el slug no ha sido ingresado manualmente,
         # se genera a partir del nombre
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name)[:50]
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:

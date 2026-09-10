@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
-    'cloudinary_storage.apps.CloudinaryStorageConfig',
+    'cloudinary_storage',
     'proyectoyaneapp',
     'proyectoyaneshop',
     'proyectoyanecontact',
