@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Enviroment path and load
 env_path = Path(__file__).resolve().parent.parent.parent / '.env'
-load_dotenv(env_path)
+load_dotenv(env_path, override=True)
 
 
 # Quick-start development settings - unsuitable for production
